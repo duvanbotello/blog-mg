@@ -37,7 +37,7 @@ class Login {
                                 //session sea valido.
                                 if (0 < item.idusuario) {
                                     localStorage.setItem("usuario", response);
-                                    window.location.href = URL + "Index/index";
+                                    window.location.href = URL;
                                 } else {
                                     //de lo contrario mostramos un mensaje de error
                                     toastr.error('Contraseña Incorrecta.');
@@ -49,30 +49,17 @@ class Login {
                             }
                         });
                     } else {
-                        $.post(URL + "Index/userLogin", { email, password }, (response) => {
+                        $.post(URL + "Login/autorLogin", { email, password }, (response) => {
                             console.log(response)
                             try {
-
                                 //paso los datos del vector response que envian desde el servidor
                                 //con JSON para manejarlos en la vista.
-
                                 var item = JSON.parse(response);
-
                                 //Verifico que el idUsuario sea mayor a 0 para verificar que el inicio de
                                 //session sea valido.
-
                                 if (0 < item.idusuario) {
-                                    //el metodo localstore nos permite crear elementos para almacenarlos
-                                    //en la memoria de nuestro navegador
-                                    //con tiene la llave user y almacena la informacion de response
-                                    if (item.rol == 1) {
-                                        localStorage.setItem("estudiante", response);
-                                    } else {
-                                        localStorage.setItem("asesor", response);
-                                    }
-                                    //si el inicio de session es correcto lo enviamos al controlador Principal
-                                    //para que abra la vista principal
-                                    window.location.href = URL + "Index/index";
+                                    localStorage.setItem("autor", response);
+                                    window.location.href = URL;
                                 } else {
                                     //de lo contrario mostramos un mensaje de error
                                     toastr.error('Contraseña Incorrecta.');

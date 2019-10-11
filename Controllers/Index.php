@@ -23,8 +23,8 @@ class Index extends Controllers
             $this->view->render($this, "indexs");
             require VIEWS . DFT . "footer.html";
         } else if (null != $autor) {
-            require VIEWS . DFT . "head.html";
-            $this->view->render($this, "PrincipalAsesor");
+            require VIEWS . DFT . "heada.html";
+            $this->view->render($this, "indexs");
             require VIEWS . DFT . "footer.html";
         } else {
             //redireccionamos el usuario a la vista login

@@ -11,6 +11,10 @@ var iniciarSesion = () => {
   login.iniciarSesion(email, password,tipo_s);
 }
 
+var sessionClose = () => {
+  login.sessionCLose();
+}
+
 //utilizando jquery
 $().ready(() => {
 
