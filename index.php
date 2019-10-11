@@ -1,4 +1,3 @@
-
 <?php
 //invoca todo lo que esta en config
 require "config.php";
