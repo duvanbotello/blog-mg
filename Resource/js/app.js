@@ -30,12 +30,14 @@ var archivo = (evt) =>{
 }
 
 var registrar = () => {
+  
   var nombre = document.getElementById("c_nombre").value;
   var apellido = document.getElementById("c_apellido").value;
+  var fecha_nac = document.getElementById("c_fecha").value;
   var correo = document.getElementById("c_correo").value;
   var contrasena1 = document.getElementById("c_contrasena1").value;
   var contrasena2 = document.getElementById("c_contrasena2").value;
-  registrar1.registrar(nombre, apellido, correo, contrasena1, contrasena2);
+  registrar1.registrar(nombre, apellido, correo,fecha_nac, contrasena1, contrasena2);
 
 }
 

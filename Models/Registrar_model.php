@@ -44,5 +44,14 @@ class Registrar_model extends Conexion
             return $response;
         }
     }
+
+    function cargar_imagen($tipo,$imagen,$email){
+        //compruebo que lo que se esta cargando es una imagen
+        if(strstr($tipo,"image")){
+            $destino = "./Resource/fotos/".$email.".png";
+            move_uploaded_file($imagen, $destino);
+            return $email.".png";
+;        }
+    }
  
 }
