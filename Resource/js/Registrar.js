@@ -2,8 +2,8 @@ class Registrar {
     _construct() {
 
     }
-
-    registrar(nombre, apellido, correo, contrasena1, contrasena2, imagen) {
+//dasdas
+    registrar(nombre, apellido, correo, contrasena1, contrasena2, imagen) { 
 
         if (nombre == '') {
             toastr.error('Ingrese Nombres.');
@@ -63,6 +63,22 @@ class Registrar {
         }
 
 
+    }
+
+    //para cargar la imagen
+    archivo(evt){
+        let files = evt.target.files;
+        let f = files[0];
+        if(f.type.match('image.*')){
+            let reader = new FileReader();
+            reader.onload = ((theFile) =>{
+                return (e) => {
+                    document.getElementById("foto_perfil").innerHTML = ['<img width="200" height="200" class="rounded mx-auto d-block" alt="..." src="',
+                    e.target.result,'" title="',escape(theFile.name),'"/>'].join('');
+                };
+            })(f);
+            reader.readAsDataURL(f);
+        }
     }
 
     vistraRegistrar() {
