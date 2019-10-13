@@ -51,15 +51,21 @@ class QueryManager
         $pdo = null;
     }
  
-    function insert($table, $value, $param) {
+    function insert($attr, $table, $values, $param)
+    {
         try {
-            $query = 'INSERT INTO '.$table.$value;
+            $query = "INSERT INTO " . $table . " " . $attr . " VALUES " . $values;
+           
             $sth = $this->pdo->prepare($query);
-            $sth->execute($param);
-            return true;
-        } catch (PDOException $e) {
+            if ($sth->execute($param)) {
+                return 2;
+            } else {
+                return $sth;
+            }
+        } catch (PDOExepcion $e) {
             return $e->getMessage();
         }
+        $pdo = null;
     }
     function update($table, $where, $newvalue, $campo,$param)
     {
