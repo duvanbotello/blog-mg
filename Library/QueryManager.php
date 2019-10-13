@@ -83,6 +83,35 @@ class QueryManager
         $pdo = null;
     }
 
+    function getArticulos()
+    {
+        try {
+            $query = "SELECT art_id,art_titulo,art_imagen,art_descripcion,art_fechac,aut.aut_nombre,aut.aut_imagen FROM articulo as art INNER JOIN autor as aut on aut.aut_id = art.autor_aut_id
+            ORDER BY art_fechac DESC";
+            $sth = $this->pdo->prepare($query);
+            $sth->execute();
+            $response = $sth->fetchALL(PDO::FETCH_ASSOC);
+            return array("results" => $response);
+        } catch (PDOExepcion $e) {
+            return $e->getMessage();
+        }
+        $pdo = null;
+    }
+
+    function getArticulos2($id)
+    {
+        try {
+            $query = "SELECT art_id,art_titulo,art_imagen,art_descripcion,art_fechac,aut.aut_nombre,aut.aut_imagen FROM articulo as art INNER JOIN autor as aut on aut.aut_id = art.autor_aut_id WHERE art_id =".$id;
+            $sth = $this->pdo->prepare($query);
+            $sth->execute();
+            $response = $sth->fetchALL(PDO::FETCH_ASSOC);
+            return array("results" => $response);
+        } catch (PDOExepcion $e) {
+            return $e->getMessage();
+        }
+        $pdo = null;
+    }
+
 
 }
 ?>

@@ -6,8 +6,7 @@ class Registrar extends Controllers
         parent::__construct();
     }
 
-    public function registrar_usuario()
-    {
+    public function registrar_usuario(){
         require VIEWS . DFT . "head.html";
         $this->view->render($this, "registrar");
         require VIEWS . DFT . "footer.html";

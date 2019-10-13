@@ -28,4 +28,25 @@ class Articulo extends Controllers
         }
     }
 
+    function getArticulos()
+    {
+        $data = $this->model->getarticulos();
+        if (is_array($data)) {
+            echo json_encode($data);
+        } else {
+            echo $data;
+        }
+    }
+
+    function getArticulo()
+    {
+        $data = $this->model->getarticulo($_POST["id"]);
+        if (is_array($data)) {
+            echo json_encode($data);
+        } else {
+            echo $data;
+        }
+    }
+
+
 }
