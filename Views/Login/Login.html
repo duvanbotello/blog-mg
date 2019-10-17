@@ -7,32 +7,34 @@
             <!-- Inicio jumbotron -->
             <div class="jumbotron text-center">
                 <h2>Blog - Megaterios</h2>
-                <img width="200" height="200" class="img-thumbnail rounded-circle "
+                <img style="width:200px; height:auto;" class="img-thumbnail rounded-circle "
                     src="../plantilla_principal/images/login.png" alt="...">
-                <hr class="">
+                <hr class="col-12" style="border-style: solid;border-width: 2px;">
                 <!-- Inicio Formulario Login -->
                 <form class="form" id="formIniciarSesion" method="POST">
-                    <select class="form-control" id="tipo_usu">
+                    <label for="tipo_usu">Tipo de usuario</label>
+                    <select class="form-control custom-select" id="tipo_usu">
                         <option value="1">Usuario</option>
                         <option value="2">Autor</option>
                     </select>
+                    <div class="col-12"> <hr> </div>
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text far fa-user"></div>
+                            <div class="input-group-text far fa-user">@</div>
                         </div>
                         <input type="text" class="form-control" id="email" placeholder="Corre Electronico" required>
                     </div>
 
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text fas fa-key"></div>
+                            <div class="input-group-text fas fa-key">¬¬</div>
                         </div>
                         <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
                     </div>
 
                     <div class="pt-3">
-                        <a class="btn btn-outline-dark mb-2" onclick="iniciarSesion();">Iniciar Sesion</a>
-                        <a class="btn btn-outline-primary mb-2" onclick="vistraRegistrar();">Crear Cuenta</a>
+                        <a class="btn btn-outline-success mb-2 col" onclick="iniciarSesion();">Iniciar Sesion</a>
+                        <a class="btn btn-outline-primary mb-2 col" onclick="vistraRegistrar();">Crear Cuenta</a>
                     </div>
 
                 </form>
